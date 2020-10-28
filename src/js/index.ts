@@ -2,14 +2,20 @@ import axios, {​​ AxiosResponse, AxiosError}​​ from "../../node_modules/
 import {ICar} from "./ICar";
 
 let carWebUrl: string = "https://webapicar20190326034339.azurewebsites.net/api/cars";
-let buttonElement:HTMLButtonElement = <HTMLButtonElement> document.getElementById("myButton")
+let getAllButton:HTMLButtonElement = <HTMLButtonElement> document.getElementById("getAllButton")
+let getButton:HTMLButtonElement = <HTMLButtonElement> document.getElementById("getButton")
 let ContentElement: HTMLDivElement = <HTMLDivElement> document.getElementById("carsContent");
+let getInput: HTMLInputElement = <HTMLInputElement> document.getElementById("getInput");
+let getInputValue : number = +getInput.value;
+let getContent:HTMLDivElement=<HTMLDivElement> document.getElementById("getContent")
 
-document.getElementById("myButton").addEventListener("click", GetAllCars)
+getAllButton.addEventListener("click", GetAllCars);
+getButton.addEventListener("click",GetCar);
 
-function GetAllCars(){
+
+function GetAllCars():void{
     axios.get<ICar[]>(carWebUrl)
-    .then(function(AxiosResponse){
+    .then(function(AxiosResponse):void{
         console.log(AxiosResponse);
         console.log("Status Code: ",AxiosResponse.status);
         while (ContentElement.firstChild){
@@ -20,7 +26,7 @@ function GetAllCars(){
             ContentElement.appendChild(newNode);
         });
     })
-    .catch(function(error:AxiosError){
+    .catch(function(error:AxiosError):void{
         console.log(error);
         let errorMessage = "Error Code: "+error.response.status;
         console.log(errorMessage);
@@ -31,6 +37,23 @@ function GetAllCars(){
         ContentElement.appendChild(newNode);
     })
 }
+
+function GetCar():void{
+    axios.get<ICar>(carWebUrl + getInputValue)
+    .then(function(AxiosResponse):void{
+        console.log(AxiosResponse);
+        console.log("Status Code: ",AxiosResponse.status);
+        // getContent.innerHTML="AxiosResponse";
+        })
+    .catch(function(error:AxiosError):void{
+        console.log(error);
+        let errorMessage = "Error Code: "+error.response.status;
+        console.log(errorMessage);
+    })
+}
+
+
+
 
 function AddLiElement(text:string):HTMLLIElement {
     let newLi:HTMLLIElement = document.createElement('li');

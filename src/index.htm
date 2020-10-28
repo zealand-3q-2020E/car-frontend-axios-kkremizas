@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en-US">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Coding Template</title>
@@ -7,14 +8,69 @@
 </head>
 
 <body>
-  <h1>Webpack - TypeScript - Scss</h1>
-  <h2>TypeScript Hello World</h2> 
-  <!-- <input id="myInput" placeholder="Enter the string..." /> -->
-  <button id="myButton"><b>Show all cars</b></button>
-  <div id="content">
-    <ol id="carsContent">
+
+  <h1>Axios Car assignment</h1>
+
+  <div class="row">
+
+    <div class="side">
+  <button id="getAllButton"><b>Show all cars</b></button>
+  <div id="getAllContent">
+    <ul id="carsContent">
   </div>
-    
+  </div>
+
+  <div class="side">
+  <input id="getInput" placeholder="Enter car ID">
+  <br>
+  <button id="getButton"><b>Show specified car</b></button>
+  <div id="getContent">
+  </div>
+</div>
+
+  <br>  <br>
+
+  <div class="side">
+  <input id="addVendorInput" placeholder="Enter car Vendor">
+  <br>
+  <input id="addModelInput" placeholder="Enter car Model">
+  <br>
+  <input id="addPriceInput" placeholder="Enter car Price">
+  <br>
+  <button id="postButton"><b>Add car</b></button>
+  <div id="postContent">
+  </div>
+</div>
+
+  <br>  <br>
+
+  <div class="side">
+  <input id="updateIDInput" placeholder="Enter car ID">
+  <br>
+  <input id="updateVendorInput" placeholder="Enter car Vendor">
+  <br>
+  <input id="updateModelInput" placeholder="Enter car Model">
+  <br>
+  <input id="updatePriceInput" placeholder="Enter car Price">
+  <br>
+  <button id="putButton"><b>Update car</b></button>
+  <div id="putContent">
+  </div>
+</div>
+
+  <br>  <br>
+
+  <div class="side">
+  <input id="deleteInput" placeholder="Enter car ID">
+  <br>
+  <button id="deleteButton"><b>Delete car</b></button>
+  <div id="deleteContent">
+  </div>
+</div>
+
+</div>
+
   <script src="bundle.js"></script>
 </body>
+
 </html>
