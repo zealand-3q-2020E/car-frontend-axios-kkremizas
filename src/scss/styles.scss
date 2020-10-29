@@ -1,6 +1,11 @@
 $fontColor: #ffffff;
 $colorHeading: #ffffff;
-#carsContent  // div with id: content
+#getAllContent  // div with id: content
+{
+    color: $fontColor;
+}
+
+#getContent  // div with id: content
 {
     color: $fontColor;
 }
