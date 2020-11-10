@@ -75,9 +75,8 @@ function AddCar(): void {
         { vendor: myVendor, model: myModel, price: myPrice })
         .then(function (response: AxiosResponse): void {
             console.log("Statuscode is :" + response.status);
-            let car: ICar = response.data;
-            postContent.innerHTML = "Following car successfully added:<br><br>ID: " + car.id + "<br>Vendor: " + car.vendor + ",<br>Model: " + car.model + ",<br>Price: " + car.price;
-
+            let message: string = response.data;
+            postContent.innerHTML = message;
             // Clear postContent after 3 seconds
             clearTimeout(timeout);
             timeout = setTimeout(function () {
@@ -115,8 +114,8 @@ function UpdateCar(): void {
         { id: myId, vendor: myVendor, model: myModel, price: myPrice })
         .then(function (response: AxiosResponse): void {
             console.log("Statuscode is :" + response.status);
-            let car: ICar = response.data;
-            putContent.innerHTML = "Following car successfully updated:<br><br>ID: " + car.id + "<br>Vendor: " + car.vendor + ",<br>Model: " + car.model + ",<br>Price: " + car.price;
+            let message: string = response.data;
+            putContent.innerHTML = message;
 
             // Clear postContent after 3 seconds
             clearTimeout(timeout);
@@ -147,8 +146,8 @@ function DeleteCar(): void {
     axios.delete<ICar>(carWebUrl + "/" + myId)
         .then(function (response: AxiosResponse): void {
             console.log("Statuscode is :" + response.status);
-            let car: ICar = response.data;
-            deleteContent.innerHTML = "Following car successfully deleted:<br><br>ID: " + car.id + "<br>Vendor: " + car.vendor + ",<br>Model: " + car.model + ",<br>Price: " + car.price;
+            let message: string = response.data;
+            deleteContent.innerHTML = message;
 
             // Clear postContent after 3 seconds
             clearTimeout(timeout);
